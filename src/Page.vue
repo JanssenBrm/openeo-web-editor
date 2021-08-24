@@ -43,6 +43,7 @@ export default {
 		ProcessParameterModal: () => import('./components/modals/ProcessParameterModal.vue'),
 		ServerInfoModal: () => import('./components/modals/ServerInfoModal.vue'),
 		ServiceInfoModal: () => import('./components/modals/ServiceInfoModal.vue'),
+		StacBrowserModal: () => import('./components/modals/StacBrowserModal.vue'),
 		Tour: () => import('./components/Tour.vue'),
 		UdfRuntimeModal: () => import('./components/modals/UdfRuntimeModal.vue'),
 		WebEditorModal: () => import('./components/modals/WebEditorModal.vue')
@@ -88,6 +89,8 @@ export default {
 		this.listen('showWebEditorInfo', this.showWebEditorInfo);
 		this.listen('title', this.setTitle);
 		this.listen('showTour', where => this.tourType = where);
+
+		this.showModal('StacBrowserModal');
 	},
 	watch: {
 		isDiscovered(newVal) {

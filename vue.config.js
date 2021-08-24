@@ -1,5 +1,3 @@
-const webpack = require('webpack');
-
 module.exports = {
 	// Path where this instance of the web editor is hosted (string)
 	// For example, if you host the web editor at the root of your domain (e.g. https://example.com),
@@ -26,6 +24,20 @@ module.exports = {
 				maxInitialRequests: 8,
 				maxAsyncRequests: 1
 			}
+		},
+		module: {
+			rules: [
+				{
+					test: /\.m?js$/,
+					exclude: /(node_modules|bower_components)/,
+					use: {
+						loader: 'babel-loader',
+						options: {
+							presets: ["@vue/app", '@babel/preset-env']
+						}
+					}
+				}
+			]
 		}
 	}
 }
